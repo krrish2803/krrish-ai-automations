@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DemoVoiceRouteImport } from './routes/demo.voice'
+import { Route as DemoChatbotRouteImport } from './routes/demo.chatbot'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoVoiceRoute = DemoVoiceRouteImport.update({
+  id: '/demo/voice',
+  path: '/demo/voice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoChatbotRoute = DemoChatbotRouteImport.update({
+  id: '/demo/chatbot',
+  path: '/demo/chatbot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/demo/chatbot': typeof DemoChatbotRoute
+  '/demo/voice': typeof DemoVoiceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/demo/chatbot': typeof DemoChatbotRoute
+  '/demo/voice': typeof DemoVoiceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/demo/chatbot': typeof DemoChatbotRoute
+  '/demo/voice': typeof DemoVoiceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/demo/chatbot' | '/demo/voice'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/demo/chatbot' | '/demo/voice'
+  id: '__root__' | '/' | '/demo/chatbot' | '/demo/voice'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DemoChatbotRoute: typeof DemoChatbotRoute
+  DemoVoiceRoute: typeof DemoVoiceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo/voice': {
+      id: '/demo/voice'
+      path: '/demo/voice'
+      fullPath: '/demo/voice'
+      preLoaderRoute: typeof DemoVoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo/chatbot': {
+      id: '/demo/chatbot'
+      path: '/demo/chatbot'
+      fullPath: '/demo/chatbot'
+      preLoaderRoute: typeof DemoChatbotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DemoChatbotRoute: DemoChatbotRoute,
+  DemoVoiceRoute: DemoVoiceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
