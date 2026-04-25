@@ -4,7 +4,48 @@ import heroBg from "@/assets/hero-bg.jpg";
 import { Link } from "@tanstack/react-router";
 import { openCalendly } from "@/components/Calendly";
 
+declare global {
+  interface Window {
+    voiceflow?: any;
+  }
+}
+
 export function Hero() {
+  const loadVoiceflowChatbot = () => {
+    if (typeof window === "undefined") return;
+
+    const loadWidget = () => {
+      window.voiceflow?.chat?.load({
+        verify: { projectID: "69e8f235c4bdcfd47019ab99" },
+        url: "https://general-runtime.voiceflow.com",
+        versionID: "production",
+        voice: {
+          url: "https://runtime-api.voiceflow.com",
+        },
+      });
+      setTimeout(() => {
+        window.voiceflow?.chat?.open?.();
+      }, 100);
+    };
+
+    if (window.voiceflow?.chat) {
+      loadWidget();
+      return;
+    }
+
+    if (document.getElementById("voiceflow-widget-script")) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = "voiceflow-widget-script";
+    script.type = "text/javascript";
+    script.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+    script.async = true;
+    script.onload = loadWidget;
+    document.head.appendChild(script);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
       {/* Background */}
@@ -55,12 +96,10 @@ export function Hero() {
             className="mt-10 flex flex-col sm:flex-row gap-3 items-center justify-center animate-fade-up"
             style={{ animationDelay: "0.3s" }}
           >
-            <Button asChild variant="hero" size="xl" className="group">
-              <a href="https://creator.voiceflow.com/share/69e8f235c4bdcfd47019ab9a/development" target="_blank" rel="noopener noreferrer">
-                <Bot className="h-5 w-5" />
-                Try AI Chatbot Demo
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+            <Button variant="hero" size="xl" className="group" onClick={loadVoiceflowChatbot}>
+              <Bot className="h-5 w-5" />
+              Try AI Chatbot Demo
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button asChild variant="glass" size="xl">
               <Link to="/demo/voice">
@@ -101,3 +140,4 @@ export function Hero() {
     </section>
   );
 }
+
