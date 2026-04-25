@@ -54,6 +54,8 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundComponent,
 });
 
+import { Calendly } from "@/components/Calendly";
+
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -62,6 +64,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <Calendly />
         <Scripts />
       </body>
     </html>

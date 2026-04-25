@@ -1,5 +1,6 @@
 import { Check, Shield, RotateCcw, Zap, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { openCalendly } from "@/components/Calendly";
 
 type Plan = {
   name: string;
@@ -119,8 +120,8 @@ export function Pricing() {
                     Save $200/mo
                   </span>
                 </div>
-                <Button asChild variant="hero" size="lg" className="mt-6">
-                  <a href="#contact">Get Started</a>
+                <Button variant="hero" size="lg" className="mt-6" onClick={openCalendly}>
+                  Get Started
                 </Button>
               </div>
               <ul className="space-y-3">
@@ -158,7 +159,7 @@ export function Pricing() {
         </div>
 
         <p className="text-center text-sm text-muted-foreground mt-6">
-          Enterprise custom pricing available · <a href="#contact" className="gradient-text font-semibold">Book a call for a quote →</a>
+          Enterprise custom pricing available · <button onClick={openCalendly} className="gradient-text font-semibold hover:underline bg-transparent border-none p-0 cursor-pointer">Book a call for a quote →</button>
         </p>
       </div>
     </section>
@@ -204,8 +205,8 @@ function PlanGroup({ title, plans }: { title: string; plans: Plan[] }) {
                 </li>
               ))}
             </ul>
-            <Button asChild variant={p.featured ? "hero" : "outline"} className="w-full">
-              <a href="#contact">Get Started</a>
+            <Button variant={p.featured ? "hero" : "outline"} className="w-full" onClick={openCalendly}>
+              Get Started
             </Button>
           </div>
         ))}

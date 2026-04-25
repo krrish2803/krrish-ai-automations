@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/demo/voice")({
   head: () => ({
     meta: [
-      { title: "AI Voice Agent Demo — Krrish.AI" },
+      { title: "AI Voice Agent Demo — NovaVoice AI" },
       { name: "description", content: "Hear our AI voice agent in action. Sample appointment booking, FAQ handling, and after-hours calls." },
-      { property: "og:title", content: "AI Voice Agent Demo — Krrish.AI" },
+      { property: "og:title", content: "AI Voice Agent Demo — NovaVoice AI" },
       { property: "og:description", content: "Live AI voice receptionist demo for dentists, salons, and clinics." },
     ],
   }),
@@ -45,11 +45,11 @@ function VoiceDemoPage() {
           </p>
         </div>
 
-        <a href="tel:+15551234567" className="block rounded-3xl gradient-brand p-8 text-center mb-8 shadow-glow hover:scale-[1.02] transition-transform">
+        <a href="tel:+14695272509" className="block rounded-3xl gradient-brand p-8 text-center mb-8 shadow-glow hover:scale-[1.02] transition-transform">
           <div className="flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-white/80 font-semibold mb-2">
             <Phone className="h-4 w-4" /> Click to call live demo
           </div>
-          <div className="text-3xl md:text-4xl font-bold text-white">+1 (555) 123-4567</div>
+          <div className="text-3xl md:text-4xl font-bold text-white">+1 469 527 2509</div>
           <div className="text-sm text-white/80 mt-2">US toll-free · Talk to the AI right now</div>
         </a>
 

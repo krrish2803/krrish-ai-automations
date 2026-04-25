@@ -1,5 +1,6 @@
 import { Calendar, MessageCircle, Mail, Phone, Linkedin, Twitter, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { openCalendly } from "@/components/Calendly";
 
 export function Contact() {
   return (
@@ -25,11 +26,9 @@ export function Contact() {
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Button asChild variant="hero" size="xl">
-                  <a href="https://calendly.com" target="_blank" rel="noreferrer">
-                    <Calendar className="h-5 w-5" />
-                    Book Free Demo Call
-                  </a>
+                <Button variant="hero" size="xl" onClick={openCalendly}>
+                  <Calendar className="h-5 w-5" />
+                  Book Free Demo Call
                 </Button>
                 <Button asChild variant="glass" size="xl">
                   <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer">
@@ -92,10 +91,8 @@ export function Contact() {
                 ))}
               </div>
 
-              <Button asChild variant="hero" className="w-full" size="lg">
-                <a href="https://calendly.com" target="_blank" rel="noreferrer">
-                  Pick a Time →
-                </a>
+              <Button variant="hero" className="w-full" size="lg" onClick={openCalendly}>
+                Pick a Time →
               </Button>
               <p className="text-xs text-muted-foreground text-center mt-3">
                 Slots open this week · Limited availability

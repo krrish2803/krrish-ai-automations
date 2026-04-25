@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/demo/chatbot")({
   head: () => ({
     meta: [
-      { title: "AI Chatbot Demo — Krrish.AI" },
+      { title: "AI Chatbot Demo — NovaVoice AI" },
       { name: "description", content: "Try a live AI chatbot for e-commerce. See how it answers product, shipping, and order questions in real time." },
-      { property: "og:title", content: "AI Chatbot Demo — Krrish.AI" },
+      { property: "og:title", content: "AI Chatbot Demo — NovaVoice AI" },
       { property: "og:description", content: "Live interactive AI chatbot demo for e-commerce stores." },
     ],
   }),

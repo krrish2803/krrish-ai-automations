@@ -37,6 +37,7 @@ export function Navbar() {
           <Link to="/" className="font-display text-lg font-bold tracking-tight">
             NovaVoice <span className="gradient-text">AI</span>
           </Link>
+          </Link>
 
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((l) => (

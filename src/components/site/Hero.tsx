@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Bot, Phone, Calendar, ArrowRight, Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Link } from "@tanstack/react-router";
+import { openCalendly } from "@/components/Calendly";
 
 export function Hero() {
   return (
@@ -55,11 +56,11 @@ export function Hero() {
             style={{ animationDelay: "0.3s" }}
           >
             <Button asChild variant="hero" size="xl" className="group">
-              <Link to="/demo/chatbot">
+              <a href="https://creator.voiceflow.com/share/69e8f235c4bdcfd47019ab9a/development" target="_blank" rel="noopener noreferrer">
                 <Bot className="h-5 w-5" />
                 Try AI Chatbot Demo
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="glass" size="xl">
               <Link to="/demo/voice">
@@ -67,11 +68,9 @@ export function Hero() {
                 Try AI Voice Agent
               </Link>
             </Button>
-            <Button asChild variant="outline" size="xl">
-              <a href="#contact">
-                <Calendar className="h-5 w-5" />
-                Book Free Call
-              </a>
+            <Button variant="outline" size="xl" onClick={openCalendly}>
+              <Calendar className="h-5 w-5" />
+              Book Free Call
             </Button>
           </div>
 

@@ -164,11 +164,11 @@ function VoiceDemo() {
       </div>
 
       <a
-        href="tel:+15551234567"
+        href="tel:+14695272509"
         className="block rounded-2xl gradient-brand p-5 text-center mb-5 shadow-glow hover:scale-[1.02] transition-transform"
       >
         <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">Click to call live demo</div>
-        <div className="text-2xl font-bold text-white mt-1">📞 +1 (555) 123-4567</div>
+        <div className="text-2xl font-bold text-white mt-1">📞 +1 469 527 2509</div>
         <div className="text-xs text-white/80 mt-1">US toll-free · Talk to the AI now</div>
       </a>
 

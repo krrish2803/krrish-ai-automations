@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,11 +7,8 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-10">
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl gradient-brand">
-                <Sparkles className="h-5 w-5 text-white" />
-              </span>
               <span className="font-display text-lg font-bold">
-                Krrish<span className="gradient-text">.AI</span>
+                NovaVoice <span className="gradient-text">AI</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
@@ -40,8 +36,20 @@ export function Footer() {
           </div>
         </div>
 
+        <div className="flex gap-4 mt-4">
+          <a href="https://www.linkedin.com/in/krrish-yaduka-16aa72293/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://www.instagram.com/krri.sh8629/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+            <span>Instagram</span>
+          </a>
+          <a href="https://x.com/Krrish629803631" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+            <span>Twitter</span>
+          </a>
+        </div>
+
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-muted-foreground">
-          <div>© 2026 Krrish. All rights reserved.</div>
+          <div>© 2026 NovaVoice AI. All rights reserved.</div>
           <div>Built with ❤️ in India · Serving 🇺🇸 🇬🇧 🇦🇺</div>
         </div>
       </div>
